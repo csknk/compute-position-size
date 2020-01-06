@@ -1,1 +1,3 @@
-0.23662101 .01
+# Account Parameters
+# Capital (available balance)	Percentage risk
+0.23715358			2
