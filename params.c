@@ -16,11 +16,9 @@ size_t setTradeSetups(FILE *fp, Trade ***tradeSetups)
 {
 	char *lineBuf = NULL;
 	size_t n = 0;
-	ssize_t lineLength = 0;
 	size_t i = 0;
-	while((lineLength = getline(&lineBuf, &n, fp)) != -1) {
+	while(getline(&lineBuf, &n, fp) != -1) {
 		if ((lineBuf[0] == '#')) {
-			lineBuf = NULL;
 			continue;
 		}
 		Trade **tmp = realloc(*tradeSetups, (sizeof(*tradeSetups) * (i + 1)));
@@ -39,7 +37,6 @@ size_t setTradeSetups(FILE *fp, Trade ***tradeSetups)
 			&((*tradeSetups)[i]->stopLoss)
 		);
 		i++;
-		lineBuf = NULL;
 	}
 	free(lineBuf);
 	return i;
