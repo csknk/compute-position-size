@@ -26,6 +26,8 @@ void printTrade(Trade *t)
 			t->profit * t->exit,
 			t->cost
 	);
+	for (size_t i = 0; i < 10; i++) putchar('-');
+	putchar('\n');
 }
 
 void printAccount(Account *account)
