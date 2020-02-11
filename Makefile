@@ -1,5 +1,5 @@
 SOURCES:= $(wildcard *.c) $(wildcard *.h)
 OBJECTS:= $(wildcard *.c)
-OUT:= bin/main
+OUT:= bin/trade-position
 main: $(SOURCES)
 	cc -W -Wall -g -o $(OUT) $(OBJECTS)
