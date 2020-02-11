@@ -33,8 +33,6 @@ void printTrade(Trade *t)
 void printAccount(Account *account)
 {
 	if (isatty(fileno(stdout))) {
-			// char yellow[]={0x1b,'[','0',';','3', '3', 'm',0};
-			// underline = "\x1b[4m", yellow = "\xb[0;33m";
 			const char *highlight = "\x1b[4;33m";
 			char normal[] = {0x1b,'[','0',';','3','9','m',0};
 			printf("\n%sAccount capital: %.8Lf\tAccount risk: %.2f%%%s\n",
