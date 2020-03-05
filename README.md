@@ -22,6 +22,17 @@ This is very much a work in progress (I'm currently testing it out) so use at yo
 
 At the moment, the position size is calculated based on margin trading on [Bybit][3].
 
+Build
+-----
+Navigate to the project repo and run `make`.
+
+Executable is compiled into `bin/trade-position`.
+
+Usage
+-----
+- Rename the files `sample-account.txt` and `sample-trades.txt` to `account.txt` and `trades.txt` respectively.
+- Run the executable
+
 Setting a Stop Loss and Defining Risk
 -------------------------------------
 __Position Size__ and __Risk Amount__ are not the same.
