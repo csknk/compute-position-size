@@ -1,4 +1,4 @@
 trades.txt
 account.txt
-
+bin/*
 !bin/.gitkeep
