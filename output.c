@@ -10,13 +10,14 @@ void printTrades(Trade **trades, size_t n)
 void printTrade(Trade *t)
 {
 	printf(
-		"Entry: %.2f\n"
-	       	"Leverage: %.6f\n"
-		"Position: %.2f\n"
-		"Stop Loss: %.2f\n"
-		"Exit: %.2f\n"
-		"Profit: %.8Lf BTC %.2Lf USD\n"
-		"Cost: %.8Lf\n",
+		"\n"
+		"Entry:\t\t%.2f\n"
+	       	"Leverage:\t%.6f\n"
+		"Position:\t%.2f\n"
+		"Stop Loss:\t%.2f\n"
+		"Exit:\t\t%.2f\n"
+		"Profit:\t\t%.8Lf BTC\t%.2Lf USD\n"
+		"Cost:\t\t%.8Lf\n",
 			t->entry,
 			t->leverage,
 			t->position,
