@@ -1,2 +1,0 @@
-# Entry","Exit","Stop Loss"
-9350	9520	9215
