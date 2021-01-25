@@ -21,6 +21,7 @@ typedef struct _account {
 	float riskPercentage;	// Decimal
 } Account;
 
+void dieWithUserMessage(const char *msg, const char *detail);
 void setAccount(FILE *fp, Account *account);
 size_t setTradeSetups(FILE *fp, Trade ***tradeSetups);
 void setPosition(Trade *t, Account *a);

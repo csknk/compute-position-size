@@ -1,5 +1,14 @@
 #include "params.h"
 
+void dieWithUserMessage(const char *msg, const char *detail)
+{
+	fputs(msg, stderr);
+	fputs(": ", stderr);
+	fputs(detail, stderr);
+	fputc('\n', stderr);
+	exit(EXIT_FAILURE);
+}
+
 void setAccount(FILE *fp, Account *account)
 {
 	char *lineBuf = NULL;
@@ -27,7 +36,6 @@ size_t setTradeSetups(FILE *fp, Trade ***tradeSetups)
 			exit(EXIT_FAILURE);
 		}
 		*tradeSetups = tmp;
-		// NB sizeof needs to dereference the pointer!!!!!!!!!!!!!!!
 		(*tradeSetups)[i] = calloc(1, sizeof(*(*tradeSetups)[i]));
 		sscanf(
 			lineBuf,
@@ -36,6 +44,16 @@ size_t setTradeSetups(FILE *fp, Trade ***tradeSetups)
 			&((*tradeSetups)[i]->exit),
 			&((*tradeSetups)[i]->stopLoss)
 		);
+		if ((*tradeSetups)[i]->entry == (*tradeSetups)[i]->stopLoss) {
+			fprintf(stderr, "Trade %lu Stop loss: %.0f, entry price: %.0f\n",
+					i + 1,
+					(*tradeSetups)[i]->stopLoss,
+					(*tradeSetups)[i]->entry
+			      );
+			const char *m = "Stop loss must be different to entry price";
+			dieWithUserMessage(m, "Aborting.");
+		}
+
 		i++;
 	}
 	free(lineBuf);
